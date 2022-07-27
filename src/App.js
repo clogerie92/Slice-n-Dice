@@ -1,9 +1,15 @@
 import './App.css';
+import { NavBar } from "./components/navBar"
+import { HomePage } from "./pages/HomePage";
+import { Footer } from "./components/Footer";
 
 function App() {
   return (
     <div className="App">
-      <h1>Slice N' Dice</h1>
+      <NavBar />
+      <HomePage />
+      <Footer />
+
     </div>
   );
 }
