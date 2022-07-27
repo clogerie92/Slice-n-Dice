@@ -1,0 +1,29 @@
+#contact-form {
+	background-image: url("../../public/donatello.webp");
+	min-height: 400px;
+	background-repeat: no-repeat;
+	background-size: 300px;
+
+}
+
+#pizza-div {
+    background: url("../../public/pizzabanner.webp");
+    width: 100%;
+    min-height: 500px;
+    position: relative;
+}
+
+@keyframes float {
+	0% {
+		
+		transform: translatey(0px);
+	}
+	50% {
+		
+		transform: translatey(-20px);
+	}
+	100% {
+		
+		transform: translatey(0px);
+	}
+}
