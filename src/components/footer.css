@@ -1,0 +1,22 @@
+#footer {
+    padding: 50px;
+    background-color: purple;
+    color: white;
+    position: relative;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+ 
+}
+
+#footer img {
+    margin: 20px;
+}
+
+#icons {
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    justify-content: center;
+}

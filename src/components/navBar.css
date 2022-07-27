@@ -1,0 +1,27 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+}
+
+nav a {
+    font-family: 'Bangers', cursive;
+    font-size: xx-large;
+}
+
+header nav a {
+    padding: 30px
+}
+
+header nav {
+    padding: 30px;
+}
+
+header {
+    padding: 40px;
+}
+
+#logo {
+    min-width: 200px;
+}
