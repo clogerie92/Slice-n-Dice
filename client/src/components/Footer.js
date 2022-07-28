@@ -4,12 +4,12 @@ export const Footer = () => {
 
     return (
         <div id = "footer">
-            <p>Slice N' Dice 2022</p>
+            <p>Slice N' Dice Made With Love By:</p><br />
             <div id="icons">
-            <img src = "leo.png" height="75px" width="75px" />
-            <img src = "mike.png" height="75px" width="75px"/>
-            <img src = "donatello.webp" height="75px" width="75px"/>
-            <img src = "raph.png" height="75px" width="75px"/>
+            <div><img src = "leo.png" height="75px" width="75px" /><p>clogerie92</p></div>
+            <div><img src = "mike.png" height="75px" width="75px" /><p>chrisjackson1</p></div>
+            <div><img src = "donatello.webp" height="75px" width="75px" /><p>krosario314</p></div>
+            <div><img src = "raph.png" height="75px" width="75px" /><p>ianahill</p></div>
             </div>
         </div>
     )
