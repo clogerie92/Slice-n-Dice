@@ -1,58 +1,71 @@
 const {gql} = require("apollo-server-express");
 
 const typeDefs = gql`
-    type Users {
-        _id: ID
-        email: String
-        orders: [Orders]
-    }
-
-    type Orders {
-        _id: ID
-        purchaseDate: String
-        pizza: [Pizza]
+    type Customer {
+      _id: ID
+      username: String
+      email: String
+      phone: String
+      address: String
+      orders: [Pizza]
     }
 
     type Pizza {
-        _id: ID
-        size: String
-        type: String
-        toppings: String
-        price: Number
-        quantity: Number
-        user: [Users]
+      _id: ID
+      size: String
+      crust: String
+      meats: [String]
+      veggies: [String]
+    }
+
+    type Order {
+      _id: ID
+      status: String
+      createdDate: String
+      pizza: [Pizza]
     }
 
     type Employee {
-        _id: ID
-        email: String
-        orders: [Orders]
+      _id: ID
+      username: String
+      email: String
+      password: String
     }
 
     type Checkout {
-        session: ID
-      }
+       session: ID
+    }
     
-      type Auth {
-        token: ID
-        user: Users
-      }
+    type CustAuth {
+      token: ID
+      customer: Customer
+    }
+
+    type EmpAuth {
+      token: ID
+      employee: Employee
+    }
     
-      type Query {
-        orders: [Orders]
-        pizzas(user: ID, username: String): [Pizza]
-        pizza(_id: ID!): Pizza
-        user: Users
-        order(_id: ID!): Orders
-        checkout(pizzas: [ID]!): Checkout
-      }
+    type Query {
+      customers: [Customer]
+      pizzas: [Pizza]
+      # pizzas(_id: ID): [Pizza]
+      orders: [Order]
+      pizza(_id: ID!): Pizza
+      customer(_id: ID!): Customer
+      order(_id: ID!): Order
+      # checkout(pizzas: [ID]!): Checkout
+    }
     
-      type Mutation {
-        addUser(email: String!, password: String!, address: String!): Auth
-        addOrder(pizzas: [ID]!): Orders
-        updatePizza(_id: ID!, quantity: Int!): Pizza
-        login(email: String!, password: String!): Auth
-      }
+    type Mutation {
+      addCustomer(username: String!, phone: String, email: String, password: String, address: String): CustAuth
+      addPizza(pizza: Pizza): Pizza
+      updatePizza(_id: ID!): Pizza
+      deletePizza(_id: ID!): Pizza
+      addOrder(pizza: ID!): Order
+      updateOrder(pizza: ID!): Order
+      deleteOrder(pizza: ID!): Order
+    }
 `;
 
 module.exports = typeDefs;
