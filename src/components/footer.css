@@ -30,3 +30,27 @@
     margin: 0px;
     font-family: 'McLaren', cursive;
 }
+
+#leo:hover{
+    border-bottom: 5px;
+    border-bottom-style: solid;
+    border-color: white;
+}
+
+#mike:hover{
+    border-bottom: 5px;
+    border-bottom-style: solid;
+    border-color: white;
+}
+
+#don:hover{
+    border-bottom: 5px;
+    border-bottom-style: solid;
+    border-color: white;
+}
+
+#raph:hover{
+    border-bottom: 5px;
+    border-bottom-style: solid;
+    border-color: white;
+}

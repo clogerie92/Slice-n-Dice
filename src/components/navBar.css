@@ -35,3 +35,14 @@ header {
     font-size: x-large;
 
 }
+
+#login:hover{
+    border-bottom: 5px;
+    border-bottom-style: solid;
+    border-color: red;
+}
+#signup:hover{
+    border-bottom: 5px;
+    border-bottom-style: solid;
+    border-color: red;
+}
