@@ -1,6 +1,6 @@
-const Users = require("./Users");
+const Customer = require("./Customer");
 const Pizza = require("./Pizza");
-const Orders = require("./Orders");
-const Employees = require("./Employees");
+const Order = require("./Order");
+const Employee = require("./Employee");
 
-module.exports = {Users, Pizza, Orders, Employees};
+module.exports = {Customer, Pizza, Order, Employee};
