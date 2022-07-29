@@ -2,20 +2,21 @@
 	background: whitesmoke;
 	position: absolute;
 	margin-top: 20px;
-	display: flex;
-	justify-content: space-around; 
 	width: 500px;
 	height: 520px;
 	border: 20px solid black;
-    flex-wrap: wrap;
 	border-color: black;
 	border-radius: 40px;
-	
+	text-align: center;
 }
+
+
 h1 {
     font-family: 'Bangers', cursive;
 	font-size: xxx-large;
+	
 }
+
 
 #order-cards {
 	position: absolute;
@@ -23,7 +24,6 @@ h1 {
 	display: flex;
 	justify-content: space-between;
 	font-family: 'McLaren', cursive;
-	
 }
 
 #order-cards h2 {
@@ -36,15 +36,12 @@ h1 {
     min-height: 600px;
 	display: flex;
 	justify-content: center;
-
-	
 }
 
 #pizza-div img {
 	padding-top: 20px;
 	margin-left: 40px;
 	margin-right: 40px;
-	
 }
 
 #size {
@@ -104,11 +101,11 @@ h1 {
 	margin-bottom: 20px;
 }
 
-#order-button {
+/* #order-button {
 	display: flex;
 	justify-content: center;
-	
-}
+} */
+
 @keyframes float {
 	0% {
 		
