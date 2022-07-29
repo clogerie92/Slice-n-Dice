@@ -40,15 +40,15 @@ db.once('open', async () => {
   const orders = await Order.insertMany([
     {
       status: "In progress",
-      pizza: [ pizzas[0]._id, pizzas[1]._id ]
+      pizzas: [ pizzas[0]._id, pizzas[1]._id ]
     },
     {
       status: "In progress",
-      pizza: [ pizzas[2]._id, pizzas[3]._id ]
+      pizzas: [ pizzas[2]._id, pizzas[3]._id ]
     },
     {
       status: "Complete",
-      pizza: [ pizzas[1]._id, pizzas[4]._id ]
+      pizzas: [ pizzas[1]._id, pizzas[4]._id ]
     } 
   ]);
   console.log('orders seeded');
@@ -70,7 +70,7 @@ db.once('open', async () => {
     email: 'cara@testmail.com',
     password: 'secret12345',
     address: "456 Mountain Dr, Orange, NJ",
-    orders: [orders[2]._id]
+    orders: [orders[1]._id, orders[2]._id]
   });
 
   console.log('Customer seeded');

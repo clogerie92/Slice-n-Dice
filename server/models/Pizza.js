@@ -22,6 +22,12 @@ const pizzaSchema = new Schema({
             type: String
         }
     ],
+    // customers: [
+    //     {
+    //         type: Schema.Types.ObjectId,
+    //         ref: "Customer"
+    //     }
+    // ]
 
     // price: {
     //     type: Number,
