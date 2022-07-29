@@ -12,10 +12,11 @@ function App() {
   return (
     <div className="App">
       <NavBar testLogIn = {setIsLoggedIn} />
-      {isLoggedIn ? <OrderPage /> : <HomePage />}
+      {isLoggedIn ? <OrderPage /> : <EmployeePage />}
       <Footer />
 
     </div>
+
   );
 }
 

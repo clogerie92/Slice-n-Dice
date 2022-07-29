@@ -14,7 +14,9 @@ export const OrderPage = () => {
         setHasOrdered(true);
     }
 
-    const orderPage = (<div id="order-page">
+    const orderPage = (
+    
+    <div id="order-page">
 
     <div id="pizza-div-order">
 
