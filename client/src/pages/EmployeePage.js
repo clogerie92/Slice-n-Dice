@@ -7,18 +7,13 @@ import "./EmployeePage.css"
 export default function EmployeePage() {
     const { data } = useQuery(QUERY_ORDERS);
 
-    const orderList = data || [];
+    const orderList = data;
 
     console.log(orderList);
 
     return (
         <>
-            {orderList ? (
-                <div><h2>
-                Order History for {orderList} 
-              </h2></div>
-            ) : (
-                <div>fjjkl</div>)
+            {orderList ? (<div><h2>Success!</h2></div>) : (<div><h2>there was a problem</h2></div>)
             }
         </>
     )
