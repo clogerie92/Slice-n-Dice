@@ -7,7 +7,7 @@ const typeDefs = gql`
       email: String
       phone: String
       address: String
-      orders: [Pizza]
+      orders: [Order]
     }
 
     type Pizza {
@@ -22,7 +22,7 @@ const typeDefs = gql`
       _id: ID
       status: String
       createdDate: String
-      pizza: [Pizza]
+      pizzas: [Pizza]
     }
 
     type Employee {
@@ -59,7 +59,7 @@ const typeDefs = gql`
     
     type Mutation {
       addCustomer(username: String!, phone: String, email: String, password: String, address: String): CustAuth
-      addPizza(pizza: Pizza): Pizza
+      addPizza(size: String!, crust: String, meats: String, veggies: String): Pizza
       updatePizza(_id: ID!): Pizza
       deletePizza(_id: ID!): Pizza
       addOrder(pizza: ID!): Order

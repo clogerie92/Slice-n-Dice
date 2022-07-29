@@ -6,22 +6,27 @@ const { signToken } = require('../utils/auth');
 const resolvers = {
     Query: {
         customers: async () => {
-            return await Customer.find({}); 
+            return await Customer.find({}).populate("orders").populate({
+                path: "orders",
+                populate: "pizzas"
+            }); 
         },
         pizzas: async () => {
             return await Pizza.find({}).populate("customer"); 
         },
         orders: async () => {
-            return await Order.find({}).populate("pizza"); 
+            return await Order.find({}).populate("pizzas"); 
         },
         pizza: async (parent, args) => {
             return await Pizza.findById(args.id).populate("customer"); 
         },
         customer: async (parent, args, context) => {
             if (context.user) {
-                const customer = await Customer.findById(args.id).populate("pizza");
-                
-                return customer;
+                const customer = await Customer.findById(args.id).populate("orders").populate({
+                    path: "orders",
+                    populate: "pizzas"
+                });
+                return customer; 
             }
 
             throw new AuthenticationError("Please login!");
@@ -72,7 +77,6 @@ const resolvers = {
 
                 return orderDb;
             }
-            
         },
         updateOrder: async (parent, {_id, status, createdDate, pizza}) => {
             return await Pizza.findOneAndUpdate(
