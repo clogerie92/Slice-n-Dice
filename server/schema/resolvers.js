@@ -86,13 +86,17 @@ const resolvers = {
         addOrder: async (parent, { _id, status }, context) => {
             if (context.user) {
                 const orderDb = new Order({_id, status});
-                Customer.findByIdAndUpdate(context.user._id, {$push: {orders: orderDb}});
+                await Customer.findByIdAndUpdate(context.user._id, {$push: {orders: orderDb}});
 
                 return orderDb;
             }
         },
-        updateOrder: async (parent, {_id, status, createdDate, pizza}) => {
-            return await Pizza.findByIdAndUpdate(_id, { $inc: {status} }, {new: true});
+        updateOrder: async (parent, _id, status, context) => {
+            if (context.user) {
+                return await Customer.findByIdAndUpdate(context.user._id, status, {new: true});
+            }
+
+            throw new AuthenticationError('Not logged in');
         },
         deleteOrder: async (parent, _id) => {
             return await Order.findByIdAndDelete(_id, {$pull: {_id} });
