@@ -16,3 +16,13 @@ export const QUERY_ORDERS = gql`
     }
     }
 `;
+
+
+
+export const QUERY_CUSTOMERS = gql`
+    query customers {
+        customers {
+          _id
+          username
+        }
+    }`;

@@ -12,3 +12,24 @@ mutation login($username: String!, $password: String!) {
   }
 }
 `;
+
+export const ADD_CUSTOMER = gql`
+  mutation addCustomer(
+    $username: String!
+    $email: String!
+    $password: String!
+    $address: String!
+  ) {
+    addCustomer(
+      username: $username
+      address: $address
+      email: $email
+      password: $password
+    ) {
+      token
+      customer {
+        _id
+      }
+    }
+  }
+`;
