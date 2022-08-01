@@ -47,7 +47,7 @@ function App() {
     <div className="App">
       <NavBar testLogIn = {setIsLoggedIn} />
      
-      {isLoggedIn ? <OrderPage /> : <Signup />}
+      {isLoggedIn ? <OrderPage /> : <EmployeePage />}
      
       <Footer />
 
