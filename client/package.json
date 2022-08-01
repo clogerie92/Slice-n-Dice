@@ -2,8 +2,9 @@
   "name": "slice-n-dice",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:3001/",
   "dependencies": {
-    "@apollo/client": "^3.6.9",
+    "@apollo/client": "^3.5.8",
     "@stripe/stripe-js": "^1.33.0",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
