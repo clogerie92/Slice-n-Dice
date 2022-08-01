@@ -8,7 +8,6 @@ const pizzaSchema = new Schema({
     },
     crust: {
         type: String,
-        required: true,
         trim: true
     },
     meats: [

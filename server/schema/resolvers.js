@@ -17,6 +17,7 @@ const resolvers = {
             return await Pizza.find({}); 
         },
         orders: async () => {
+
             console.log((new AuthenticationError("resolver orders")).message )
             try {
                 return await Order.find({}).populate("pizzas");
@@ -53,46 +54,55 @@ const resolvers = {
             return { token, customer }
         },
         addPizza: async (parent, { size, crust, meats, veggies }, context) => {
-            console.log(context);
-            if (context.customer) {
+            // console.log(context);
+            if (context.user) {
                 const pizza = new Pizza({size, crust, meats, veggies});
-                const pizzaDb = pizza.save();
-                console.log(pizzaDb);
+                const pizzaDb = await pizza.save();
+                console.log((new AuthenticationError(`**PizzaDb: ${pizzaDb}`)).message )
                 const orderDb = Order.create({$push: {pizzas: pizzaDb._id}})
                 
-                await Customer.findOneAndUpdate(context.order._id, { $push: {pizzas: pizzaDb._id} });
+                await Customer.findOneAndUpdate(context.user._id, { $push: {pizzas: pizzaDb._id} });
 
-                return orderDb;
+                return pizzaDb;
             }
 
             throw new AuthenticationError("Please login!");
         },
         updatePizza: async (parent, {_id, size, crust, meats, veggies}, context) => {
-            if (context.customer) {
-                const pizzaData = new Pizza({_id, size, crust, meats, veggies});
-                await Pizza.findByIdAndUpdate(_id, { $inc: {size, crust, meats, veggies} }, {new: true});
-                return pizzaData;
+            console.log((new AuthenticationError(`**updatePizza: ${context.user}`)).message );
+            if (context.user) {
+                // const pizzaData = new Pizza({ size, crust, meats, veggies});
+                // console.log((new AuthenticationError(`**PizzaData: ${pizzaData}`)).message );
+                return await Pizza.findByIdAndUpdate(_id, { size, crust, meats, veggies}, {new: true});
+                // return pizzaData;
             }
+
+            throw new AuthenticationError("pizza not updated!");
             
         },
         // deletePizza: async (parent, {pizzaId}, context) => {
         //     return await Pizza.findOneAndDelete(pizzaId, {$pull: {pizzas: }});
         // },
         addOrder: async (parent, { _id, status }, context) => {
-            if (context.customer) {
+            if (context.user) {
                 const orderDb = new Order({_id, status});
-                Customer.findByIdAndUpdate(context.customer._id, {$push: {orders: orderDb}});
+                await Customer.findByIdAndUpdate(context.user._id, {$push: {orders: orderDb}});
 
                 return orderDb;
             }
         },
-        updateOrder: async (parent, {_id, status, createdDate, pizza}) => {
-            return await Pizza.findByIdAndUpdate(_id, { $inc: {status} }, {new: true});
+        updateOrder: async (parent, _id, status, context) => {
+            if (context.user) {
+                return await Customer.findByIdAndUpdate(context.user._id, status, {new: true});
+            }
+
+            throw new AuthenticationError('Not logged in');
         },
         deleteOrder: async (parent, _id) => {
             return await Order.findByIdAndDelete(_id, {$pull: {_id} });
         },
         login: async (parent, { username, password }) => {
+            console.log()
             const customer = await Customer.findOne({ username });
       
             if (!customer) {
