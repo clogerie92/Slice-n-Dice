@@ -4,21 +4,24 @@ import { QUERY_ORDERS } from "../utils/queries";
 // import { DELETE_ORDER } from '../utils/mutations';
 import "./EmployeePage.css"
 
+
+
 export default function EmployeePage() {
-    const { data } = useQuery(QUERY_ORDERS);
+    console.log("EmployeePage");
+    const { loading:loadingOrders, data:orderData } = useQuery(QUERY_ORDERS);
 
-    const orderList = data || [];
+    //orderData.orders (use this syntax to access data in orderData)
+    // const orders = data?.orders || [];
+    
 
-    console.log(orderList);
+    if (loadingOrders) {
+        return <div>Loading...</div>;
+    }
 
     return (
         <>
-            {orderList ? (
-                <div><h2>
-                Order History for {orderList} 
-              </h2></div>
-            ) : (
-                <div>fjjkl</div>)
+            {console.log(orderData)}
+            {orderData ? (<div><h2>Success!</h2></div>) : (<div><h2>there was a problem</h2></div>)
             }
         </>
     )

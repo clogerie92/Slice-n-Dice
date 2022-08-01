@@ -1,6 +1,8 @@
 const { AuthenticationError } = require('apollo-server-express');
+
 const { Customer, Pizza, Employee, Order } = require('../models');
 const { signToken } = require('../utils/auth');
+
 // const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
 
 const resolvers = {
@@ -9,16 +11,23 @@ const resolvers = {
             return await Customer.find({}).populate("orders").populate({
                 path: "orders",
                 populate: "pizzas"
-            }); 
+            });
         },
         pizzas: async () => {
             return await Pizza.find({}); 
         },
         orders: async () => {
-            return await Order.find({}).populate("pizzas"); 
+            console.log((new AuthenticationError("resolver orders")).message )
+            try {
+                return await Order.find({}).populate("pizzas");
+            }
+            catch(err) {
+                console.log(new AuthenticationError("orders error") )
+                return;
+            }
         },
         pizza: async (parent, args) => {
-            return await Pizza.findById(args.id).populate("customer"); 
+            return await Pizza.findById(args.id).populate("customer");
         },
         customer: async (parent, args, context) => {
             if (context.user) {
@@ -26,14 +35,14 @@ const resolvers = {
                     path: "orders",
                     populate: "pizzas"
                 });
-                return customer; 
+                return customer;
             }
 
             throw new AuthenticationError("Please login!");
-             
+
         },
         order: async (parent, args) => {
-            return await Order.findById(args.id).populate("pizza"); 
+            return await Order.findById(args.id).populate("pizza");
         }
     },
     Mutation: {
@@ -41,9 +50,9 @@ const resolvers = {
             const customer = await Customer.create(args);
             const token = signToken(customer);
 
-            return {token, customer}
+            return { token, customer }
         },
-        addPizza: async (parent, {size, crust, meats, veggies}, context) => {
+        addPizza: async (parent, { size, crust, meats, veggies }, context) => {
             console.log(context);
             if (context.customer) {
                 const pizza = new Pizza({size, crust, meats, veggies});
@@ -55,7 +64,7 @@ const resolvers = {
 
                 return orderDb;
             }
-            
+
             throw new AuthenticationError("Please login!");
         },
         updatePizza: async (parent, {_id, size, crust, meats, veggies}, context) => {
