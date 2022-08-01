@@ -1,5 +1,5 @@
 import React from "react";
-import { useQuery, gql } from '@apollo/client';
+import { useQuery } from '@apollo/client';
 import { QUERY_ORDERS } from "../utils/queries";
 // import { DELETE_ORDER } from '../utils/mutations';
 import "./EmployeePage.css"
@@ -7,13 +7,21 @@ import "./EmployeePage.css"
 
 
 export default function EmployeePage() {
-    const { loading, error, data } = useQuery(QUERY_ORDERS);
+    console.log("EmployeePage");
+    const { loading:loadingOrders, data:orderData } = useQuery(QUERY_ORDERS);
 
-    console.log(error);
+    //orderData.orders (use this syntax to access data in orderData)
+    // const orders = data?.orders || [];
+    
+
+    if (loadingOrders) {
+        return <div>Loading...</div>;
+    }
 
     return (
         <>
-            {error ? (<div><h2>Success!</h2></div>) : (<div><h2>there was a problem</h2></div>)
+            {console.log(orderData)}
+            {orders.length ? (<div><h2>Success!</h2></div>) : (<div><h2>there was a problem</h2></div>)
             }
         </>
     )

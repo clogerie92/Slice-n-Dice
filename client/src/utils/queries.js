@@ -1,7 +1,7 @@
 import { gql } from "@apollo/client";
 
 export const QUERY_ORDERS = gql`
-    query orderQL {
+    query {
         orders {
         _id
         status
