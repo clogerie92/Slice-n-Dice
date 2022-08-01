@@ -98,8 +98,8 @@ const resolvers = {
 
             throw new AuthenticationError('Not logged in');
         },
-        deleteOrder: async (parent, _id) => {
-            return await Order.findByIdAndDelete(_id, {$pull: {_id} });
+        deleteOrder: async (parent, orderId) => {
+            return await Order.findOneAndDelete( {_id: orderId} );
         },
         login: async (parent, { username, password }) => {
             console.log()
