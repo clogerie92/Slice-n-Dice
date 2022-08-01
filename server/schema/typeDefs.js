@@ -41,6 +41,11 @@ const typeDefs = gql`
       customer: Customer
     }
 
+    # type LoginAuth {
+    #   token: ID
+    #   customer: Customer
+    # }
+
     type EmpAuth {
       token: ID
       employee: Employee
@@ -60,11 +65,12 @@ const typeDefs = gql`
     type Mutation {
       addCustomer(username: String!, phone: String, email: String, password: String, address: String): CustAuth
       addPizza(size: String!, crust: String, meats: String, veggies: String): Pizza
-      updatePizza(_id: ID!): Pizza
-      deletePizza(_id: ID!): Pizza
-      addOrder(pizza: ID!): Order
-      updateOrder(pizza: ID!): Order
-      deleteOrder(pizza: ID!): Order
+      updatePizza(_id: ID!, size: String, crust: String, meats: String, veggies: String): Pizza
+      # deletePizza(_id: ID!): Pizza
+      addOrder(_id: ID!, status: String!): Order
+      updateOrder(_id: ID!, status: String): Order
+      deleteOrder(_id: ID!): Order
+      login(username: String!, password: String!): CustAuth
     }
 `;
 
