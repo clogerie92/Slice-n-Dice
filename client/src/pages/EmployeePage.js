@@ -21,7 +21,7 @@ export default function EmployeePage() {
     return (
         <>
             {console.log(orderData)}
-            {orders.length ? (<div><h2>Success!</h2></div>) : (<div><h2>there was a problem</h2></div>)
+            {orderData ? (<div><h2>Success!</h2></div>) : (<div><h2>there was a problem</h2></div>)
             }
         </>
     )
