@@ -8,6 +8,7 @@ import EmployeePage from "./pages/EmployeePage";
 import { AddPizza } from "./pages/AddPizza";
 import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink, } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
+import { Login } from "./pages/Login"
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -45,7 +46,7 @@ function App() {
     <div className="App">
       <NavBar testLogIn = {setIsLoggedIn} />
      
-      {isLoggedIn ? <OrderPage /> : <EmployeePage />}
+      {isLoggedIn ? <OrderPage /> : <Login />}
      
       <Footer />
 
