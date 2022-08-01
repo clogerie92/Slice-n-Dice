@@ -12,7 +12,7 @@ const resolvers = {
             }); 
         },
         pizzas: async () => {
-            return await Pizza.find({}).populate("customer"); 
+            return await Pizza.find({}); 
         },
         orders: async () => {
             return await Order.find({}).populate("pizzas"); 
@@ -39,56 +39,67 @@ const resolvers = {
     Mutation: {
         addCustomer: async (parent, args) => {
             const customer = await Customer.create(args);
-            const token = signToken(user);
+            const token = signToken(customer);
 
             return {token, customer}
         },
         addPizza: async (parent, {size, crust, meats, veggies}, context) => {
             console.log(context);
-            if (context.user) {
+            if (context.customer) {
                 const pizza = new Pizza({size, crust, meats, veggies});
                 const pizzaDb = pizza.save();
                 console.log(pizzaDb);
                 const orderDb = Order.create({$push: {pizzas: pizzaDb._id}})
                 
-                await Customer.findOneAndUpdate(context.order._id, {$push: {pizzas: pizzaDb._id}});
+                await Customer.findOneAndUpdate(context.order._id, { $push: {pizzas: pizzaDb._id} });
 
-                return pizza;
+                return orderDb;
             }
             
             throw new AuthenticationError("Please login!");
         },
-        updatePizza: async (parent, {_id, size, crust, meats, veggies}) => {
-            return await Pizza.findOneAndUpdate(
-                {_id: id},
-                {size},
-                {crust},
-                {meats},
-                {veggies}
-            );
+        updatePizza: async (parent, {_id, size, crust, meats, veggies}, context) => {
+            if (context.customer) {
+                const pizzaData = new Pizza({_id, size, crust, meats, veggies});
+                await Pizza.findByIdAndUpdate(_id, { $inc: {size, crust, meats, veggies} }, {new: true});
+                return pizzaData;
+            }
+            
         },
-        deletePizza: async (parent, {_id}) => {
-            return await Pizza.findOneAndDelete({_id});
-        },
-        addOrder: async (parent, { customerId }, context) => {
-            if (context.user) {
-                const orderDb = Order.create({status: "In progress"});
-                Customer.findByIdAndUpdate(customerId, {$push: {orders: orderDb._id}});
+        // deletePizza: async (parent, {pizzaId}, context) => {
+        //     return await Pizza.findOneAndDelete(pizzaId, {$pull: {pizzas: }});
+        // },
+        addOrder: async (parent, { _id, status }, context) => {
+            if (context.customer) {
+                const orderDb = new Order({_id, status});
+                Customer.findByIdAndUpdate(context.customer._id, {$push: {orders: orderDb}});
 
                 return orderDb;
             }
         },
         updateOrder: async (parent, {_id, status, createdDate, pizza}) => {
-            return await Pizza.findOneAndUpdate(
-                {_id: id},
-                {status},
-                {createdDate},
-                {pizza},
-            );
+            return await Pizza.findByIdAndUpdate(_id, { $inc: {status} }, {new: true});
         },
-        deleteOrder: async (parent, {_id}) => {
-            return await Order.findOneAndDelete({_id});
+        deleteOrder: async (parent, _id) => {
+            return await Order.findByIdAndDelete(_id, {$pull: {_id} });
         },
+        login: async (parent, { username, password }) => {
+            const customer = await Customer.findOne({ username });
+      
+            if (!customer) {
+              throw new AuthenticationError('Incorrect credentials');
+            }
+      
+            const correctPw = await customer.isCorrectPassword(password);
+      
+            if (!correctPw) {
+              throw new AuthenticationError('Incorrect credentials');
+            }
+      
+            const token = signToken(customer);
+      
+            return { token, customer };
+          }
     }
 };
 
