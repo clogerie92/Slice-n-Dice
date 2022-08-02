@@ -80,6 +80,10 @@ const resolvers = {
             throw new AuthenticationError("pizza not updated!");
             
         },
+        deletePizza: async (parent, {_id}) => {
+            await Pizza.findOneAndDelete( {_id} );
+            return "Order deleted!"
+        },
         // deletePizza: async (parent, {pizzaId}, context) => {
         //     return await Pizza.findOneAndDelete(pizzaId, {$pull: {pizzas: }});
         // },
