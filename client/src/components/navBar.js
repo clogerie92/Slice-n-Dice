@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-// import {Section} from "./section";
+import { Link } from "react-router-dom";
 import "./navBar.css"
 
 export const NavBar = ({testLogIn}) => {
@@ -13,8 +13,8 @@ export const NavBar = ({testLogIn}) => {
                 <img id="logo"src = "./logo.png" height="10%" width="10%" ></img>
                 <div id="mikey-quote"><p>“There comes a time, brothers, where history is forged like melted cheese… it sticks together as one, but it’s still soft and squishy in the middle… mmm… are you with me?!” -Michaelangelo</p></div>
                 <nav>
-                    <a id="login" onClick = {setLogIn}>login</a>
-                    <a id="signup">signup</a>
+                    <Link to = "/login"><a id="login" onClick = {setLogIn}>login</a></Link>
+                    <Link to = "/signup"><a id="signup">signup</a></Link>
                 </nav>
             </header>
         </div>
