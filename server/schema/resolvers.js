@@ -91,15 +91,18 @@ const resolvers = {
                 return orderDb;
             }
         },
-        updateOrder: async (parent, _id, status, context) => {
+        updateOrder: async (parent, {_id, status}, context) => {
             if (context.user) {
-                return await Customer.findByIdAndUpdate(context.user._id, status, {new: true});
+                const orderDb = new Order({_id, status});
+                await Customer.findByIdAndUpdate(context.user._id, {$set: {orders: orderDb}});
+                return orderDb;
             }
 
             throw new AuthenticationError('Not logged in');
         },
-        deleteOrder: async (parent, orderId) => {
-            return await Order.findOneAndDelete( {_id: orderId} );
+        deleteOrder: async (parent, {_id}) => {
+            await Order.findOneAndDelete( {_id} );
+            return "Order deleted!"
         },
         login: async (parent, { username, password }) => {
             console.log()

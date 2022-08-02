@@ -8,6 +8,8 @@ import EmployeePage from "./pages/EmployeePage";
 import { AddPizza } from "./pages/AddPizza";
 import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink, } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
+import { Login } from "./pages/Login";
+import { Signup } from "./pages/Signup";
 
 const httpLink = createHttpLink({
   uri: '/graphql',
