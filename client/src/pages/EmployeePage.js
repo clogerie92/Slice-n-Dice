@@ -13,7 +13,6 @@ export default function EmployeePage() {
     //orderData.orders (use this syntax to access data in orderData)
     // const orders = data?.orders || [];
     
-
     if (loadingOrders) {
         return <div>Loading...</div>;
     }
