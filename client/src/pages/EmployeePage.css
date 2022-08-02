@@ -26,7 +26,7 @@
 	font-family: 'Bangers', cursive;
 	font-size: xxx-large;
 }
-#pizza-div {
+#pizza-div-employee-page {
     background: url("../../public/pizzabanner.webp");
     width: 100%;
     min-height: 600px;
@@ -39,6 +39,17 @@
 	margin-left: 40px;
 	margin-right: 40px;
 	
+}
+
+#employee-order-card {
+	background: url("../../public/splinter.png");
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+	height: 550px;
+	width: 300px;
+	text-align: center;
+	font-size: larger;
 }
 
 #size {
@@ -98,11 +109,24 @@
 	margin-bottom: 20px;
 }
 
+#employee-order-btn {
+	margin: auto;
+	color: white;
+	background-color: red;
+	font-family: 'Bangers', cursive;
+	font-size: xxx-large;
+	border-radius: 20px;
+	padding-left: 20px;
+	padding-right: 20px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
 #order-button {
 	display: flex;
 	justify-content: center;
-	
 }
+
 @keyframes float {
 	0% {
 		
