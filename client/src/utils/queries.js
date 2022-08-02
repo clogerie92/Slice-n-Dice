@@ -18,6 +18,18 @@ export const QUERY_ORDERS = gql`
 `;
 
 
+export const QUERY_PIZZAS = gql`
+query getPizzas {
+    pizzas {
+      _id
+      size
+      crust
+      meats
+      veggies
+    }
+  }`;
+
+
 
 export const QUERY_CUSTOMERS = gql`
     query customers {
