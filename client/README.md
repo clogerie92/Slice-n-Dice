@@ -1,3 +1,56 @@
+# Slice N' Dice
+## User Story
+```
+AS a hungry customer
+I WANT to create an order, to send to employtrack the status of my order
+SO THAT I can save, organize and share my family recipes
+```
+#
+## List of Technology
+* HTML
+* Javascript 
+* Cascade Style Sheet
+* Node.js 
+* Mysql
+* Cloudinary 
+* Font Awesome 
+* Bootstrap 
+* Google Fonts 
+# 
+## What is this application?
+This application is a virtual family recipe cookbook that stores all your relatives' homemade recipes from over the years allowing them to be at your fingertips.
+#
+## What does the application do?
+This application organizes your family's homemade recipes by storing and saving the recipes for the family to have access to them later. The application is logged in based so only certain users have access to their family's cookbook.
+#
+## Why was this application made?
+This application was created to help users have their family's recipes at the touch of their fingertips without having the hassle of having to call extended family. The app works by collecting and organizing all the user's family's homemade recipes allowing other relatives to have access to them too.
+#
+## How do users use it?
+Users can login or sign up to access their family cookbook account where they're presented categories of food allowing them to navigate and browse through recipes.
+#
+## What problem does it solve?
+Homemade family recipes are special and irreplaceable, and if you were to lose or misplace a recipe you won't have any way to get a new one. You would have to reach out to extended family to retrieve those recipes. To avoid many phone calls to relatives or having to rely on one piece of paper, you can use the Family Cookbook to store and organize your family's recipes for you and family members to access later.
+#
+## Resources
+* [GitHub Repo](https://github.com/Zzaclipse/familyCookbook)
+* [Deployed link]()
+* [Cloudinary](https://cloudinary.com/products/programmable_media?utm_source=google&utm_medium=search&utm_campaign=22-02-pme-dip-pm_image_editing-1265&utm_source=google&utm_medium=cpc&utm_campaign=ACore&utm_content=585170418919&utm_term=picture%20upload&gclid=CjwKCAjwwo-WBhAMEiwAV4dybRErHM-O8_elo2ldiPR1nEc69gSvcicsnqT6SRW2Z8hsptNDaP4oEhoCBxMQAvD_BwE)
+* [Font Awesome](https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css)
+* [Bootstrap](https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css)
+* [Google Fonts](https://fonts.googleapis.com/css2?family=Alata&family=Lexend+Deca:wght@100;200&family=Sacramento&display=swap)
+#
+## Contributors
+* Ian Hill - [GitHub](https://github.com/IanAHill)
+* Chris Jackson - [GitHub](https://github.com/chrisjackson1)
+* Kayla Rosario - [GitHub](https://github.com/krosario314)
+* Katelyn King - [GitHub](https://github.com/katelynking)
+* Alex Stokes - [GitHub](https://github.com/Zzaclipse)
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
