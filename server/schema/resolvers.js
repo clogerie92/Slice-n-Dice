@@ -102,7 +102,7 @@ const resolvers = {
             return await Order.findByIdAndDelete(_id, {$pull: {_id} });
         },
         login: async (parent, { username, password }) => {
-            console.log()
+            console.log(username, password);
             const customer = await Customer.findOne({ username });
       
             if (!customer) {
