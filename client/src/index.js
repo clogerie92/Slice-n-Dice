@@ -5,20 +5,21 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import reactDOM from "react-dom";
 import { BrowserRouter, Route, Routes} from "react-router-dom";
- 
-
+import { Signup } from "./pages/Signup"
+import { Login } from "./pages/Login"
+import { Footer } from "./components/Footer";
+import { NavBar } from "./components/navBar"
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <BrowserRouter>
+ 
   <React.StrictMode>
-   <Routes>
-    {/* <Route path = "/checkout" element={<Checkout />}></Route> */}
-    <Route path = "/" element={<App />}></Route>
-    </Routes>
+ 
+    <App />
+
   </React.StrictMode>
-  </BrowserRouter>
+  
 
 );
 

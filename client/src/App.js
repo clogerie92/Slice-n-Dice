@@ -10,6 +10,8 @@ import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink, } from '@a
 import { setContext } from '@apollo/client/link/context';
 import { Login } from "./pages/Login";
 import { Signup } from "./pages/Signup";
+import reactDOM from "react-dom";
+import { BrowserRouter, Route, Routes} from "react-router-dom";
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -41,17 +43,21 @@ const client = new ApolloClient({
 
 function App() {
 
-  const [isLoggedIn, setIsLoggedIn ] = useState(false);
+  
   return (
     <ApolloProvider client={client}>
-    <div className="App">
-      <NavBar testLogIn = {setIsLoggedIn} />
-     
-      {isLoggedIn ? <OrderPage /> : <EmployeePage />}
-     
-      <Footer />
+      <BrowserRouter>
+        <NavBar />
+          <Routes>
+            {/* <Route path = "/checkout" element={<Checkout />}></Route> */}
+            <Route path="/" element={<HomePage />}></Route>
+            <Route path="/signup" element={<Signup />}></Route>
+            <Route path="/login" element={<Login />}></Route>
+            <Route path="/orderpage" element={<OrderPage />}></Route>
 
-    </div>
+          </Routes>
+        <Footer />
+      </BrowserRouter>
     </ApolloProvider>
   );
 }
