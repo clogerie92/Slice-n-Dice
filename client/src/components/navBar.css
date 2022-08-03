@@ -25,6 +25,10 @@ header {
     padding-bottom: 5px;
 }
 
+#homePageNavBarButton {
+    width: 250px;
+}
+
 #logo {
     min-width: 200px;
 }

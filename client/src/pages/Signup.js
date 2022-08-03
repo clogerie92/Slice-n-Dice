@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import Auth from '../utils/auth';
 import { ADD_CUSTOMER } from '../utils/mutations';
+import "./Signup.css"
 
 export const Signup = () => {
   const [formState, setFormState] = useState({ email: '', password: '' });
@@ -33,11 +34,14 @@ export const Signup = () => {
   };
 
   return (
-    <div className="container my-1">
+
+    <div id="pizza-div-order">
+    <div id="order-form-login">
+    <div className="container my-1"id="login-form">
       <Link to="/login">Go to Login</Link>
 
       <h2>Signup</h2>
-      <form onSubmit={handleFormSubmit}>
+      <form onSubmit={handleFormSubmit} >
         <div className="flex-row space-between my-2">
           <label htmlFor="firstName">Username:</label>
           <input
@@ -47,7 +51,7 @@ export const Signup = () => {
             id="username"
             onChange={handleChange}
           />
-        </div>
+        </div><br />
      
         <div className="flex-row space-between my-2">
           <label htmlFor="email">Email:</label>
@@ -58,7 +62,7 @@ export const Signup = () => {
             id="email"
             onChange={handleChange}
           />
-        </div>
+        </div><br />
         <div className="flex-row space-between my-2">
           <label htmlFor="pwd">Password:</label>
           <input
@@ -68,7 +72,7 @@ export const Signup = () => {
             id="password"
             onChange={handleChange}
           />
-        </div>
+        </div><br />
 
         <div className="flex-row space-between my-2">
           <label htmlFor="pwd">Address:</label>
@@ -79,7 +83,7 @@ export const Signup = () => {
             id="address"
             onChange={handleChange}
           />
-        </div>
+        </div><br />
 
 
 
@@ -87,6 +91,8 @@ export const Signup = () => {
           <button type="submit">Submit</button>
         </div>
       </form>
+    </div>
+    </div>
     </div>
   );
 }

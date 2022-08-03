@@ -3,6 +3,7 @@ import { useMutation } from '@apollo/client';
 import { Link } from 'react-router-dom';
 import { LOGIN } from '../utils/mutations';
 import Auth from '../utils/auth';
+import "./login.css"
 
 export const Login = () => {
   const [formState, setFormState] = useState({ username: '', password: '' });
@@ -31,11 +32,13 @@ export const Login = () => {
   };
 
   return (
-    <div className="container my-1">
+    <div id="pizza-div-order">
+    <div id="order-form-login">
+      
+      <form onSubmit={handleFormSubmit} id="login-form">
       <Link to="/signup">← Go to Signup</Link>
 
-      <h2>Login</h2>
-      <form onSubmit={handleFormSubmit}>
+<h2>Login</h2>
         <div className="flex-row space-between my-2">
           <label htmlFor="username">Username:</label>
           <input
@@ -45,7 +48,7 @@ export const Login = () => {
             id="username"
             onChange={handleChange}
           />
-        </div>
+        </div><br />
         <div className="flex-row space-between my-2">
           <label htmlFor="password">Password:</label>
           <input
@@ -55,7 +58,7 @@ export const Login = () => {
             id="password"
             onChange={handleChange}
           />
-        </div>
+        </div> <br />
         {error ? (
           <div>
             <p className="error-text">The provided credentials are incorrect</p>
@@ -65,6 +68,7 @@ export const Login = () => {
           <button type="submit">Submit</button>
         </div>
       </form>
+    </div>
     </div>
   );
 }

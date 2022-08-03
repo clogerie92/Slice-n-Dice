@@ -66,7 +66,7 @@ const typeDefs = gql`
       addCustomer(username: String!, phone: String, email: String, password: String, address: String): CustAuth
       addPizza(size: String!, crust: String, meats: String, veggies: String): Pizza
       updatePizza(_id: ID!, size: String, crust: String, meats: String, veggies: String): Pizza
-      # deletePizza(_id: ID!): Pizza
+      deletePizza(_id: ID!): Pizza
       addOrder(_id: ID!, status: String!): Order
       updateOrder(_id: ID!, status: String): Order
       deleteOrder(_id: ID!): Order

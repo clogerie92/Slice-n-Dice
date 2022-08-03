@@ -8,7 +8,7 @@ import "./EmployeePage.css"
 
 
 
-export default function EmployeePage() {
+export default function Cart() {
     console.log("EmployeePage");
     const { loading:loadingOrders, data:orderData } = useQuery(QUERY_PIZZAS);
     const [ deletePizza ]  = useMutation(DELETE_PIZZA);
@@ -36,17 +36,15 @@ export default function EmployeePage() {
         <div id="pizza-div-employee-page">
         <div id="order-form">  </div>
             <div id = "order-cards">
-            {orderData.pizzas.map((pizza, idx) => (
+            {orderData.pizzas.map((pizza) => (
                 
                <div id="employee-order-card">
-                <h2>Order {idx+1}</h2>
                <h4>{pizza.size}</h4>
                <h4>{pizza.crust}</h4>
                <h4>{pizza.meats}</h4>
-               <h4>{pizza.veggies}</h4>
                
                
-               <button id={pizza._id} onClick = {deletePizzaFunction}>Complete Order</button>
+               <button id={pizza._id} onClick = {deletePizzaFunction}>Remove Pizza</button>
 
 
                {/* <div id="employee-order-btn"><button id="add-pizza">Complete Order</button></div> */}
@@ -66,3 +64,4 @@ export default function EmployeePage() {
         // </>
     )
 }
+
