@@ -50,7 +50,7 @@ function App() {
       <BrowserRouter>
         <NavBar />
           <Routes>
-            {/* <Route path = "/checkout" element={<Checkout />}></Route> */}
+           
             <Route path="/" element={<HomePage />}></Route>
             <Route path="/signup" element={<Signup />}></Route>
             <Route path="/login" element={<Login />}></Route>
