@@ -72,13 +72,13 @@ export const OrderPage = () => {
                         <h2>Meats</h2>
                         <h4>MMMeat-zza!</h4>
                         <div><input type="checkbox" name="meats" id="meats-pepperoni" value="pepperoni" onChange={handleChange}/>
-                            <label for="meats-pepperoni">Pepperoni</label></div><br />
+                            <label for="meats-pepperoni"> Pepperoni</label></div><br />
                         <div><input type="checkbox" name="meats" id="meats-sausage" value="sausage" onChange={handleChange}/>
-                            <label for="meats-sausage">Sausage</label></div><br />
+                            <label for="meats-sausage"> Sausage</label></div><br />
                         <div><input type="checkbox" name="meats" id="meats-anchovies" value="anchovies" onChange={handleChange}/>
-                            <label for="meats-anchovies">Anchovies</label></div><br />
+                            <label for="meats-anchovies"> Anchovies</label></div><br />
                         <div><input type="checkbox" name="meats" id="meats-bacon" value="bacon" onChange={handleChange}/>
-                            <label for="meats-bacon">Bacon</label></div>
+                            <label for="meats-bacon"> Bacon</label></div>
                     </span>
 
 
@@ -86,13 +86,13 @@ export const OrderPage = () => {
                         <h2>Veggies</h2>
                         <h4>Turtle Power!</h4>
                         <div><input type="checkbox" name="veggies" id="veggies-onions" value="onions" onChange={handleChange}/> 
-                        <label for="veggies-onions">Onions</label></div><br />
+                        <label for="veggies-onions"> Onions</label></div><br />
                         <div><input type="checkbox" name="veggies" id="veggies-olives" value="olives" onChange={handleChange}/> 
-                        <label for="veggies-olives">Olives</label></div><br />
+                        <label for="veggies-olives"> Olives</label></div><br />
                         <div><input type="checkbox" name="veggies" id="veggies-peppers" value="peppers" onChange={handleChange}/> 
-                        <label for="veggies-peppers">Green Peppers</label></div><br />
+                        <label for="veggies-peppers"> Green Peppers</label></div><br />
                         <div><input type="checkbox" name="veggies" id="veggies-mushrooms" value="mushrooms" onChange={handleChange}/> 
-                        <label for="veggies-mushrooms">Mushrooms</label></div>
+                        <label for="veggies-mushrooms"> Mushrooms</label></div>
                     </span>
 
 

@@ -9,6 +9,7 @@ import { AddPizza } from "./pages/AddPizza";
 import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink, } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import { Login } from "./pages/Login";
+import  Cart  from "./pages/Cart";
 import { Signup } from "./pages/Signup";
 import reactDOM from "react-dom";
 import { BrowserRouter, Route, Routes} from "react-router-dom";
@@ -55,6 +56,7 @@ function App() {
             <Route path="/login" element={<Login />}></Route>
             <Route path="/orderpage" element={<OrderPage />}></Route>
             <Route path="/employeepage" element={<EmployeePage />}></Route>
+            <Route path="/checkout" element={<Cart />}></Route>
           </Routes>
         <Footer />
       </BrowserRouter>

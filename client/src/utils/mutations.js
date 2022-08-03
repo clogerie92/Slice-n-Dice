@@ -41,3 +41,11 @@ mutation addPizza ($size: String!, $crust: String, $meats: String, $veggies: Str
     veggies
   }
 }`;
+
+
+export const DELETE_PIZZA = gql `
+mutation deletePizza ($id: ID!) {
+  deletePizza (_id: $id) {
+    _id
+  }
+}`;

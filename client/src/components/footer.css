@@ -8,7 +8,12 @@
     bottom: 0;
     width: 100%;
     text-align: center;
- 
+}
+#footer a {
+    color: white;
+}
+#footer a:hover{
+    color: white;
 }
 
 #footer img {
@@ -31,7 +36,8 @@
     font-family: 'McLaren', cursive;
 }
 
-#leo:hover{
+
+/* #leo:hover{
     border-bottom: 5px;
     border-bottom-style: solid;
     border-color: white;
@@ -53,4 +59,4 @@
     border-bottom: 5px;
     border-bottom-style: solid;
     border-color: white;
-}
+} */

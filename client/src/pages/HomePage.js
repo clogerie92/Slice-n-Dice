@@ -12,7 +12,7 @@ export const HomePage = () => {
         <div id="pizza-div">
             
             <img id="quote" src = "Pizza_Quote.png" height="30%" width="30%"/></div>
-        {isLoggedIn ? <OrderPage /> : <Login />}
+        {/* {isLoggedIn ? <OrderPage /> : <Login />} */}
 
         </div>
 
