@@ -1,70 +1,54 @@
-# Getting Started with Create React App
+# Slice N' Dice
+![](./public/Screen%20Shot%202022-08-03%20at%209.43.10%20AM.png)
+## User Story
+```
+AS a hungry customer
+I WANT to able to sign up or login to my account and place an online order
+SO THAT my order gets sent to the restaurant to be made
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+—-------------------------------------------------------------------------
 
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+AS an employee 
+I WANT to view all orders that are sent from the user
+SO THAT the employer can view and manage the orders
+```
+#
+## List of Technology
+* Javascript
+* CSS
+* React
+* GraphQL
+* Node.js
+* Express.js
+* MongoDB
+* Mongoose
+* Photoshop
+* Heroku
+#
+## What is this application?
+This application is a Pizza ordering app where users can sign up or login to place an order while the employee receives those orders.
+#
+## What does the application do?
+This application allows the user to sign up or login to their account where they can create a new order with the option of deciding the size of the pizza, the kind of crust, and any toppings that the user would like to add. The order then gets sent to the employer's end where the employee can view multiple orders and manage them.
+#
+## Why was this application made?
+This application was created to allow users to place an order online from wherever they are without having to call the restaurant or waiting in the store.
+#
+## How do users use it?
+Users can login or sign up with their credentials to access their account where they're presented an order form to fulfill their cravings.
+#
+## What problem does it solve?
+This application helps customers skip the instore line and provides a way for customers with disabilities to place an order with no problem. It also helps the employer to gain more customers providing them with more orders to add to their in store orders.
+#
+## Resources
+* [GitHub Repo](https://github.com/clogerie92/Slice-n-Dice)
+* [Deployed link](https://slice-n-dice-iah.herokuapp.com/)
+* [React](https://reactjs.org/)
+* [GraphQL](https://graphql.org/)
+*
+#
+## Contributors
+* Ian Hill - [GitHub](https://github.com/IanAHill)
+* Chris Jackson - [GitHub](https://github.com/chrisjackson1)
+* Carl Logerie - [GitHub](https://github.com/clogerie92)
+* Kayla Rosario - [GitHub](https://github.com/krosario314)
