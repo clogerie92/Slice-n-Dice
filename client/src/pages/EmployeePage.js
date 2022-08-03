@@ -39,10 +39,12 @@ export default function EmployeePage() {
             {orderData.pizzas.map((pizza, idx) => (
                 
                <div id="employee-order-card">
+                <h2>Order {idx+1}</h2>
                <h4>{pizza.size}</h4>
                <h4>{pizza.crust}</h4>
                <h4>{pizza.meats}</h4>
-               <h4>{idx}</h4>
+               <h4>{pizza.veggies}</h4>
+               
                
                <button id={pizza._id} onClick = {deletePizzaFunction}>Complete Order</button>
 
